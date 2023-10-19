@@ -32,6 +32,7 @@ Image createResizedForegroundImage(int iconSize, Image image, double adaptivePad
     image,
     newHeight: ((image.height * adaptivePaddingGeneration) + image.height).toInt(),
     newWidth: ((image.width * adaptivePaddingGeneration) + image.width).toInt(),
+    backgroundColor: ColorRgba8(255, 255, 255, 0)
   ),);
 }
 
