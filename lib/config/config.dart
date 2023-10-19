@@ -25,6 +25,7 @@ class Config {
     this.ios = false,
     this.imagePathAndroid,
     this.imagePathIOS,
+    this.notificationIconPathAndroid,
     this.adaptiveIconForeground,
     this.adaptiveIconBackground,
     this.minSdkAndroid = constants.androidDefaultAndroidMinSDK,
@@ -116,6 +117,10 @@ class Config {
   @JsonKey(name: 'image_path_ios')
   final String? imagePathIOS;
 
+  /// Android notification icon path
+  @JsonKey(name: 'notification_icon_path_android')
+  final String? notificationIconPathAndroid;
+
   /// android adaptive icon foreground image
   @JsonKey(name: 'adaptive_icon_foreground')
   final String? adaptiveIconForeground;
@@ -156,6 +161,10 @@ class Config {
       isNeedingNewAndroidIcon &&
       adaptiveIconForeground != null &&
       adaptiveIconBackground != null;
+
+  bool get hasAndroidNotificationConfig =>
+      isNeedingNewAndroidIcon &&
+          notificationIconPathAndroid != null;
 
   /// Checks if contains any platform config
   bool get hasPlatformConfig {
