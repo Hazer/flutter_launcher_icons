@@ -28,6 +28,7 @@ class Config {
     this.notificationIconPathAndroid,
     this.adaptiveIconForeground,
     this.adaptiveIconBackground,
+    this.adaptivePaddingGeneration,
     this.minSdkAndroid = constants.androidDefaultAndroidMinSDK,
     this.removeAlphaIOS = false,
     this.backgroundColorIOS = '#ffffff',
@@ -128,6 +129,10 @@ class Config {
   /// android adaptive_icon_background image
   @JsonKey(name: 'adaptive_icon_background')
   final String? adaptiveIconBackground;
+
+  /// Android remove_alpha_android
+  @JsonKey(name: 'adaptive_padding_generation')
+  final double? adaptivePaddingGeneration;
 
   /// Android min_sdk_android
   @JsonKey(name: 'min_sdk_android')

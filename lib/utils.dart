@@ -26,6 +26,14 @@ Image createResizedImage(int iconSize, Image image) {
   }
 }
 
+Image createResizedForegroundImage(int iconSize, Image image, double adaptivePaddingGeneration) {
+  return createResizedImage(iconSize, copyExpandCanvas(
+    image,
+    newHeight: ((image.height * adaptivePaddingGeneration) + image.height).toInt(),
+    newWidth: ((image.width * adaptivePaddingGeneration) + image.width).toInt(),
+  ),);
+}
+
 void printStatus(String message) {
   print('• $message');
 }

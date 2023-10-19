@@ -23,6 +23,8 @@ Config _$ConfigFromJson(Map json) => $checkedCreate(
               $checkedConvert('adaptive_icon_foreground', (v) => v as String?),
           adaptiveIconBackground:
               $checkedConvert('adaptive_icon_background', (v) => v as String?),
+          adaptivePaddingGeneration: $checkedConvert(
+              'adaptive_padding_generation', (v) => (v as num?)?.toDouble()),
           minSdkAndroid: $checkedConvert('min_sdk_android',
               (v) => v as int? ?? constants.androidDefaultAndroidMinSDK),
           removeAlphaIOS:
@@ -45,6 +47,7 @@ Config _$ConfigFromJson(Map json) => $checkedCreate(
         'notificationIconPathAndroid': 'notification_icon_path_android',
         'adaptiveIconForeground': 'adaptive_icon_foreground',
         'adaptiveIconBackground': 'adaptive_icon_background',
+        'adaptivePaddingGeneration': 'adaptive_padding_generation',
         'minSdkAndroid': 'min_sdk_android',
         'removeAlphaIOS': 'remove_alpha_ios',
         'backgroundColorIOS': 'background_color_ios',
@@ -63,6 +66,7 @@ Map<String, dynamic> _$ConfigToJson(Config instance) => <String, dynamic>{
       'notification_icon_path_android': instance.notificationIconPathAndroid,
       'adaptive_icon_foreground': instance.adaptiveIconForeground,
       'adaptive_icon_background': instance.adaptiveIconBackground,
+      'adaptive_padding_generation': instance.adaptivePaddingGeneration,
       'min_sdk_android': instance.minSdkAndroid,
       'remove_alpha_ios': instance.removeAlphaIOS,
       'background_color_ios': instance.backgroundColorIOS,

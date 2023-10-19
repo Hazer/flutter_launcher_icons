@@ -120,6 +120,7 @@ void createAdaptiveIcons(
       foregroundImage,
       constants.androidAdaptiveForegroundFileName,
       flavor,
+      config.adaptivePaddingGeneration
     );
   }
 
@@ -298,8 +299,15 @@ void overwriteExistingIcons(
   Image image,
   String filename,
   String? flavor,
+  [double? adaptivePaddingGeneration,]
 ) {
-  final Image newFile = utils.createResizedImage(template.size, image);
+  Image newFile;
+  if (adaptivePaddingGeneration != null) {
+    newFile = utils.createResizedForegroundImage(template.size, image, adaptivePaddingGeneration);
+  } else {
+    newFile = utils.createResizedImage(template.size, image);
+  }
+
   File(
     constants.androidResFolder(flavor) +
         template.directoryName +
