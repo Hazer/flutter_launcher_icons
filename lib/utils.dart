@@ -16,6 +16,7 @@ Image createResizedImage(int iconSize, Image image) {
       width: iconSize,
       height: iconSize,
       interpolation: Interpolation.average,
+      backgroundColor: image.backgroundColor,
     );
   } else {
     return copyResize(
@@ -23,6 +24,7 @@ Image createResizedImage(int iconSize, Image image) {
       width: iconSize,
       height: iconSize,
       interpolation: Interpolation.linear,
+      backgroundColor: image.backgroundColor,
     );
   }
 }
@@ -32,7 +34,7 @@ Image createResizedForegroundImage(int iconSize, Image image, double adaptivePad
     image,
     newHeight: ((image.height * adaptivePaddingGeneration) + image.height).toInt(),
     newWidth: ((image.width * adaptivePaddingGeneration) + image.width).toInt(),
-    backgroundColor: ColorRgba8(255, 255, 255, 0)
+    backgroundColor: image.backgroundColor
   ),);
 }
 
