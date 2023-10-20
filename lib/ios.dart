@@ -59,6 +59,9 @@ void createIcons(Config config, String? flavor) {
   if (image == null) {
     return;
   }
+
+  image = applyStickerIfNeeded(config, image);
+  
   if (config.removeAlphaIOS && image.hasAlpha) {
     final backgroundColor = getBackgroundColor(config);
     final pixel = image.getPixel(0, 0);

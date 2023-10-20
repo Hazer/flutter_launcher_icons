@@ -57,6 +57,7 @@ void createDefaultIcons(
   if (image == null) {
     return;
   }
+  image = applyStickerIfNeeded(config, image);
   if (config.removeAlphaAndroid && image.hasAlpha) {
     final backgroundColor = getBackgroundColor(config, MobilePlatform.android);
     final pixel = image.getPixel(0, 0);
@@ -118,10 +119,11 @@ void createAdaptiveIcons(
   if (backgroundConfig == null || foregroundImagePath == null) {
     throw const InvalidConfigException(errorMissingImagePath);
   }
-  final Image? foregroundImage = utils.decodeImageFile(foregroundImagePath);
+  Image? foregroundImage = utils.decodeImageFile(foregroundImagePath);
   if (foregroundImage == null) {
     return;
   }
+  foregroundImage = applyStickerIfNeeded(config, foregroundImage);
 
   // Create adaptive icon foreground images
   for (AndroidIconTemplate androidIcon in adaptiveForegroundIcons) {

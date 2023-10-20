@@ -65,6 +65,17 @@ Image? decodeImageFile(String filePath) {
   return image;
 }
 
+Image applyStickerIfNeeded(Config config, Image image) {
+  if (config.alphaSticker != null) {
+    final alphaStickerPath = config.alphaSticker!;
+    final Image? sticker = decodePng(File(alphaStickerPath).readAsBytesSync());
+    if (sticker != null) {
+      image = compositeImage(image, sticker);
+    }
+  }
+  return image;
+}
+
 enum MobilePlatform {
   android, ios;
 }

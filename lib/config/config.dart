@@ -29,6 +29,7 @@ class Config {
     this.adaptiveIconForeground,
     this.adaptiveIconBackground,
     this.adaptivePaddingGeneration,
+    this.alphaSticker,
     this.minSdkAndroid = constants.androidDefaultAndroidMinSDK,
     this.removeAlphaIOS = false,
     this.removeAlphaAndroid = false,
@@ -111,6 +112,10 @@ class Config {
 
   /// Returns true or path if ios config is enabled
   final dynamic ios; // path or bool
+
+  /// Image sticker to apply above
+  @JsonKey(name: 'alpha_sticker')
+  final String? alphaSticker;
 
   /// Image path specific to android
   @JsonKey(name: 'image_path_android')
